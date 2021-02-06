@@ -1,0 +1,39 @@
+// Includes proguard from parent directory
+buildscript {
+	 repositories {
+ 		flatDir dirs: '../proguard6.2.2/lib'
+ 	}
+ dependencies {
+ classpath ':proguard:'
+ }
+}
+apply plugin: 'java'
+apply plugin: 'application'
+repositories {
+ mavenCentral()
+}
+dependencies {
+ implementation 'org.apache.commons:commons-csv:1.8'
+}
+mainClassName = 'csci2020u.lab02.CSVDemo' // Change to point to the other java file
+version = '1.0'
+// In order to create a JAR
+jar {
+ manifest {
+ attributes "Main-Class": mainClassName,
+ "Implementation-Title": "Lab 3",
+ "Implementation-Version": version
+ }
+}
+// Minify task
+task minify (dependsOn: "jar", type: proguard.gradle.ProGuardTask) {
+ configuration "proguard.cfg"
+ injars "build/libs/lab03-1.0.jar"
+ outjars "build/libs/lab03-1.0.min.jar"
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(13))
+    }
+}
