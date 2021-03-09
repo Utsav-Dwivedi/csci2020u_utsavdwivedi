@@ -1,0 +1,28 @@
+.anchorPane{
+    -fx-background-color: purple;
+}
+.tableView{
+    -fx-base: indigo;
+}
+.label{
+    -fx-text-fill: yellow;
+}
+.textField{
+    -fx-text-fill: black;
+}
+
+.labelTop{
+    -fx-font-size: 50px;
+    -fx-text-fill: yellow;
+}
+
+.probCol {
+    -fx-text-fill: darkred;
+}
+
+.fileCol{
+    -fx-text-fill: darkred;
+}
+.actualClassCol{
+    -fx-text-fill: purple;
+}
